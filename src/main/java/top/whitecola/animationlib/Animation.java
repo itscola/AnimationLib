@@ -3,9 +3,9 @@ package top.whitecola.animationlib;
 import top.whitecola.animationlib.functions.AbstractAnimationFunction;
 
 public class Animation {
-    private float max,min, progressValue,time;
+    private float max,min, progressValue;
+    private long time;
     private boolean isFirstUpdate;
-    private boolean reverse;
     private AbstractAnimationFunction function;
 
 
@@ -23,27 +23,48 @@ public class Animation {
         return this;
     }
 
-    public Animation setTime(float time) {
+    public Animation setTotalTime(long time) {
         this.time = time;
+        if(function!=null){
+            function.setTotalTime(time);
+        }
         return this;
     }
 
-    public Animation setFunction(AbstractAnimationFunction type){
+    public Animation setFunction(AbstractAnimationFunction function){
+        function.setTotalTime(time);
+        this.function = function;
         return this;
     }
 
     public float update(long pastTime){
-        float value = this.function.get( pastTime/time );
-        return value==-1?progressValue:value;
+        float value = this.function.get( pastTime/time);
+        if(value!=-1)
+            setProgressValue(value * (max - min));
+        return progressValue;
     }
 
     public float getProgressValue() {
         return progressValue;
     }
 
-    public Animation setReverse(boolean reverse) {
-        this.reverse = reverse;
-        return this;
+    public float getTotalTime() {
+        return time;
     }
 
+    public float getMax() {
+        return max;
+    }
+
+    public float getMin() {
+        return min;
+    }
+
+    public AbstractAnimationFunction getFunction() {
+        return function;
+    }
+
+    private void setProgressValue(float progressValue) {
+        this.progressValue = progressValue;
+    }
 }

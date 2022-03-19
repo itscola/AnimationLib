@@ -1,4 +1,12 @@
 package top.whitecola.animationlib.functions.type;
 
-public class QuadInFunction {
+import top.whitecola.animationlib.functions.AbstractAnimationFunction;
+import top.whitecola.animationlib.utils.AnimationFunctionUtils;
+
+public class QuadInFunction extends AbstractAnimationFunction {
+
+    @Override
+    public float get(long pastTime) {
+        return AnimationFunctionUtils.getPowIn(getElapsedTimeRate(pastTime), 2);
+    }
 }
