@@ -6,6 +6,7 @@ public class Animation {
     private float max,min, progressValue;
     private long time;
     private boolean isFirstUpdate;
+    private boolean reverse;
     private AbstractAnimationFunction function;
 
 
@@ -32,6 +33,7 @@ public class Animation {
         return this;
     }
 
+
     public Animation setFunction(AbstractAnimationFunction function){
         function.setTotalTime(time);
         this.function = function;
@@ -44,9 +46,10 @@ public class Animation {
             return max;
         }
         if(value!=-1)
-            setProgressValue(min + (value * (max - min)));
+            setProgressValue(value * (max - min));
         return progressValue;
     }
+
 
     public float getProgressValue() {
         return progressValue;
