@@ -41,12 +41,11 @@ public class Animation {
     }
 
     public float update(long pastTime){
-        float value = this.function.get( pastTime/time);
+        float value = this.function.get(pastTime);
         if(value >= 1){
             return max;
         }
-        if(value!=-1)
-            setProgressValue(value * (max - min));
+        setProgressValue(value * (max - min));
         return progressValue;
     }
 

@@ -16,8 +16,8 @@ public class AbstractAnimationFunction implements IAnimationFunction {
         return totalTime;
     }
 
-    public float getElapsedTimeRate(long pastTime){
-        return (float) (pastTime/totalTime);
+    public float getElapsedTimeRate(float pastTime){
+        return pastTime/totalTime;
     }
 
 }
