@@ -9,8 +9,8 @@ public class Animation {
     private AbstractAnimationFunction function;
 
 
-    public Animation(float defaultProgressValue){
-        this.progressValue = defaultProgressValue;
+    public Animation(){
+
     }
 
     public Animation setMax(float max) {
@@ -19,6 +19,7 @@ public class Animation {
     }
 
     public Animation setMin(float min) {
+        this.progressValue = min;
         this.min = min;
         return this;
     }
@@ -39,8 +40,11 @@ public class Animation {
 
     public float update(long pastTime){
         float value = this.function.get( pastTime/time);
+        if(value >= 1){
+            return max;
+        }
         if(value!=-1)
-            setProgressValue(value * (max - min));
+            setProgressValue(min + (value * (max - min)));
         return progressValue;
     }
 
