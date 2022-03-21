@@ -42,7 +42,7 @@ public class Animation {
 
     public float update(long pastTime){
         float value = this.function.get(pastTime);
-        if(value >= 1){
+        if(value >= 1 || value <0){
             return max;
         }
         setProgressValue(value * (max - min));
