@@ -9,10 +9,7 @@ public class Animation {
     private boolean reverse;
     private AbstractAnimationFunction function;
     private long firstTime;
-
-    public Animation(){
-
-    }
+    
 
     public Animation setMax(float max) {
         this.max = max;
