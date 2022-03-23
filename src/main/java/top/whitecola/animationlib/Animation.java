@@ -5,10 +5,10 @@ import top.whitecola.animationlib.functions.AbstractAnimationFunction;
 public class Animation {
     private float max,min, progressValue;
     private long time;
-    private boolean isFirstUpdate;
+    private boolean isFirstUpdate = true;
     private boolean reverse;
     private AbstractAnimationFunction function;
-
+    private long firstTime;
 
     public Animation(){
 
@@ -46,7 +46,16 @@ public class Animation {
             value = 1;
         }
         setProgressValue(value * (max - min));
-        return progressValue;
+        return getProgressValue();
+    }
+
+    public float update(){
+        if(isFirstUpdate){
+            setFirstTime(System.currentTimeMillis());
+            isFirstUpdate = false;
+        }
+
+        return update(System.currentTimeMillis() - firstTime);
     }
 
 
@@ -75,9 +84,34 @@ public class Animation {
     }
 
     public boolean isFinish(){
-        if(getProgressValue() >= getMax()){
+        if(getProgressValue() >= (getMax()-getMin())){
             return true;
         }
         return false;
+    }
+
+    public Animation reset(){
+        setProgressValue(getMin());
+        this.isFirstUpdate = true;
+        return this;
+    }
+
+
+
+//    public Animation setReverse(boolean reverse){
+//        this.reverse = reverse;
+//        return this;
+//    }
+//
+//    public boolean isReverse() {
+//        return reverse;
+//    }
+
+    private long getFirstTime(){
+        return firstTime;
+    }
+
+    private void setFirstTime(long firstTime){
+        this.firstTime = firstTime;
     }
 }
