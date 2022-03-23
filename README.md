@@ -1,4 +1,4 @@
 # AnimationLib
 An animation lib for Java. It can be used in various graphic animations.    
 
-# I'll write a demo code here later
+# I'll write a demo code here later,When it's completely done.
