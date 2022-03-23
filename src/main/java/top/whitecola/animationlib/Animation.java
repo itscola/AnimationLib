@@ -9,7 +9,7 @@ public class Animation {
     private boolean reverse;
     private AbstractAnimationFunction function;
     private long firstTime;
-    
+
 
     public Animation setMax(float max) {
         this.max = max;
@@ -42,8 +42,7 @@ public class Animation {
         if(value >= 1 || value <0){
             value = 1;
         }
-        setProgressValue(value * (max - min));
-        return getProgressValue();
+        return value * (max - min);
     }
 
     public float update(){
@@ -52,7 +51,9 @@ public class Animation {
             isFirstUpdate = false;
         }
 
-        return update(System.currentTimeMillis() - firstTime);
+        setProgressValue(update(System.currentTimeMillis() - firstTime));
+        
+        return getProgressValue();
     }
 
 
