@@ -9,31 +9,40 @@ public class Animation {
     private boolean reverse;
     private AbstractAnimationFunction function;
     private long firstTime;
+    private boolean lock;
 
 
     public Animation setMax(float max) {
-        this.max = max;
+        if(!lock) {
+            this.max = max;
+        }
         return this;
     }
 
     public Animation setMin(float min) {
-        this.progressValue = min;
-        this.min = min;
+        if(!lock) {
+            this.progressValue = min;
+            this.min = min;
+        }
         return this;
     }
 
     public Animation setTotalTime(long time) {
-        this.time = time;
-        if(function!=null){
-            function.setTotalTime(time);
+        if(!lock) {
+            this.time = time;
+            if (function != null) {
+                function.setTotalTime(time);
+            }
         }
         return this;
     }
 
 
     public Animation setFunction(AbstractAnimationFunction function){
-        function.setTotalTime(time);
-        this.function = function;
+        if(!lock) {
+            function.setTotalTime(time);
+            this.function = function;
+        }
         return this;
     }
 
@@ -47,11 +56,12 @@ public class Animation {
 
     public float update(){
         if(isFirstUpdate){
-            setFirstTime(System.currentTimeMillis());
+            firstTime = System.currentTimeMillis();
             isFirstUpdate = false;
         }
 
-        setProgressValue(update(System.currentTimeMillis() - firstTime));
+
+        setProgressValue(update(System.currentTimeMillis() - getFirstTime()));
 
         return getProgressValue();
     }
@@ -95,6 +105,14 @@ public class Animation {
     }
 
 
+    public void setLock(boolean lock){
+        lock = lock;
+    }
+
+    public boolean getLock(){
+        return lock;
+    }
+
 
 //    public Animation setReverse(boolean reverse){
 //        this.reverse = reverse;
@@ -109,7 +127,5 @@ public class Animation {
         return firstTime;
     }
 
-    private void setFirstTime(long firstTime){
-        this.firstTime = firstTime;
-    }
+
 }
