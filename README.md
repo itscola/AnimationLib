@@ -13,9 +13,15 @@ float value = displayAnimation.update();
 
 if(!isNeedClose){
     Render2DUtils.drawRect(x , y , x1, displayAnimation.update());
+    
+    if(displayAnimation.isFinish()){
+        // displayAnimation finished.
+    }
+    
 }else{
     Render2DUtils.drawRect(x , y , x1, closeAnimation.update());
 }
+
 
 ```
 
