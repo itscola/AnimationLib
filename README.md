@@ -15,7 +15,7 @@ if(!isNeedClose){
     Render2DUtils.drawRect(x , y , x1, displayAnimation.update());
     
     if(displayAnimation.isFinish()){
-        // displayAnimation finished.
+        // displayAnimation is finished.
     }
     
 }else{
