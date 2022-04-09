@@ -44,6 +44,6 @@ this project entirely or partially for free and even commercially. However, plea
 Do the above and share your source code with everyone; just like we do.
 
 ## Other
-If used, keep the package name (top. Whitecola. Animationlib).
+If used, keep the package name (top.whitecola.animationlib).
 
 
