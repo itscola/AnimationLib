@@ -9,8 +9,6 @@ protected Animation closeAnimation = new Animation();
 displayAnimation.setMin(0).setMax(150).setFunction(new CubicOutFunction()).setTotalTime(260);
 closeAnimation.setMin(150).setMax(0).setFunction(new CubicOutFunction()).setTotalTime(150);
 
-float value = displayAnimation.update();
-
 if(!isNeedClose){
     Render2DUtils.drawRect(x , y , x1, displayAnimation.update());
     
