@@ -13,14 +13,14 @@ if(!isNeedClose){
     // The update method will return the max value, after the total time.
     Render2DUtils.drawRect(x , y , x1, displayAnimation.update());
     
-    if(displayAnimation.isFinish()){
-        // displayAnimation is finished.
-    }
-    
 }else{
     Render2DUtils.drawRect(x , y , x1, closeAnimation.update());
 }
 
+
+if(displayAnimation.isFinish()){
+    // displayAnimation is finished.
+}
 
 ```
 
