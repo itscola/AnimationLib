@@ -10,6 +10,7 @@ displayAnimation.setMin(0).setMax(150).setFunction(new CubicOutFunction()).setTo
 closeAnimation.setMin(150).setMax(0).setFunction(new CubicOutFunction()).setTotalTime(150);
 
 if(!isNeedClose){
+    // The update method will return the max value, after the total time.
     Render2DUtils.drawRect(x , y , x1, displayAnimation.update());
     
     if(displayAnimation.isFinish()){
