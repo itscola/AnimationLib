@@ -22,6 +22,9 @@ if(displayAnimation.isFinish()){
     // displayAnimation is finished.
 }
 
+
+displayAnimation.reset();
+
 ```
 
 
