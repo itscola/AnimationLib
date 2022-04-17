@@ -19,7 +19,7 @@ if(!isNeedClose){
 
 
 if(displayAnimation.isFinish()){
-    // displayAnimation is finished.
+    // displayAnimation is finish.
 }
 
 
