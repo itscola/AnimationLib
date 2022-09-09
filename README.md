@@ -46,7 +46,7 @@ Render2DUtils.drawRect(x , y , x1, closeAnimation.update(System.currentTimeMilli
 protected Animation displayAnimation = new Animation();
 
 Render2DUtils.drawRect(x , y , x1, 
-displayAnimation.setMin(0).setMax(150).setFunction(new CubicOutFunction()).setTotalTime(260).setLock(true).update();
+displayAnimation.setMin(0).setMax(150).setFunction(new CubicOutFunction()).setTotalTime(260).setLock(true).update()
 );
 
 
