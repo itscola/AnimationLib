@@ -27,6 +27,7 @@ displayAnimation.reset();
 
 ```
 
+
 ```java
 protected Animation displayAnimation = new Animation();
 protected long time;
@@ -39,8 +40,9 @@ this.time = System.currentTimeMillis()
 
 Render2DUtils.drawRect(x , y , x1, closeAnimation.update(System.currentTimeMillis() - this.time));
 
-
 ```
+
+
 
 ```java
 protected Animation displayAnimation = new Animation();
