@@ -54,7 +54,7 @@ displayAnimation.setMin(0).setMax(150).setFunction(new CubicOutFunction()).setTo
 
 ```
 
-```
+```java
 float value = enableAnimation.update();
    if(!enableAnimation.isFinish()){
    yPosition = 16 + value;
