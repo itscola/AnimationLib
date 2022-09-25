@@ -54,6 +54,13 @@ displayAnimation.setMin(0).setMax(150).setFunction(new CubicOutFunction()).setTo
 
 ```
 
+```
+float value = enableAnimation.update();
+   if(!enableAnimation.isFinish()){
+   yPosition = 16 + value;
+}
+```
+
 ## Other
 If used, keep the package name (top.whitecola.animationlib).
 
