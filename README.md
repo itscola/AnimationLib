@@ -61,7 +61,4 @@ float value = enableAnimation.update();
 }
 ```
 
-## Other
-If used, keep the package name (top.whitecola.animationlib).
-
 
