@@ -8,9 +8,8 @@ public class BounceInOutFunction extends AbstractAnimationFunction {
     public float get(long pastTime) {
         float elapsedTimeRate = getElapsedTimeRate(pastTime);
         if (elapsedTimeRate < 0.5f) {
-            return AnimationFunctionUtils.getBounceIn((elapsedTimeRate * 2f) * 0.5f);
+            return AnimationFunctionUtils.getBounceIn(elapsedTimeRate * 2f) * 0.5f;
         }
-        return elapsedTimeRate;
+        return AnimationFunctionUtils.getBounceOut((elapsedTimeRate - 0.5f) * 2f) * 0.5f + 0.5f;
     }
-
 }

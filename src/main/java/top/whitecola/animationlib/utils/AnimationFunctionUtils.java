@@ -38,12 +38,57 @@ public class AnimationFunctionUtils {
      * @param amount          amount The strength of the ease.
      * @return easedValue
      */
+    public static float getBackIn(float elapsedTimeRate, float amount) {
+        return (float) (amount * elapsedTimeRate * elapsedTimeRate * ((amount + 1f) * elapsedTimeRate - amount));
+    }
+
+    /**
+     * @param elapsedTimeRate Elapsed time / Total time
+     * @param amount          amount The strength of the ease.
+     * @return easedValue
+     */
+    public static float getBackOut(float elapsedTimeRate, float amount) {
+        return (float) (1f + amount * (--elapsedTimeRate) * elapsedTimeRate * ((amount + 1f) * elapsedTimeRate + amount));
+    }
+
+    /**
+     * @param elapsedTimeRate Elapsed time / Total time
+     * @param amount          amount The strength of the ease.
+     * @return easedValue
+     */
     public static float getBackInOut(float elapsedTimeRate, float amount) {
-        amount *= 1.525;
+        amount *= 1.525f;
         if ((elapsedTimeRate *= 2) < 1) {
             return (float) (0.5 * (elapsedTimeRate * elapsedTimeRate * ((amount + 1) * elapsedTimeRate - amount)));
         }
         return (float) (0.5 * ((elapsedTimeRate -= 2) * elapsedTimeRate * ((amount + 1) * elapsedTimeRate + amount) + 2));
+    }
+
+    /**
+     * @param elapsedTimeRate Elapsed time / Total time
+     * @return easedValue
+     */
+    public static float getCircIn(float elapsedTimeRate) {
+        return (float) (1f - Math.sqrt(1f - elapsedTimeRate * elapsedTimeRate));
+    }
+
+    /**
+     * @param elapsedTimeRate Elapsed time / Total time
+     * @return easedValue
+     */
+    public static float getCircOut(float elapsedTimeRate) {
+        return (float) Math.sqrt((2f - elapsedTimeRate) * elapsedTimeRate);
+    }
+
+    /**
+     * @param elapsedTimeRate Elapsed time / Total time
+     * @return easedValue
+     */
+    public static float getCircInOut(float elapsedTimeRate) {
+        if (elapsedTimeRate < 0.5f) {
+            return (float) (-0.5f * (Math.sqrt(1f - 4f * elapsedTimeRate * elapsedTimeRate) - 1f));
+        }
+        return (float) (0.5f * (Math.sqrt(1f - 4f * (elapsedTimeRate - 1f) * (elapsedTimeRate - 1f)) + 1f));
     }
 
     /**

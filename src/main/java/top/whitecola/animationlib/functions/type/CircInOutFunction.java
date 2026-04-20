@@ -5,11 +5,10 @@ import top.whitecola.animationlib.functions.AbstractAnimationFunction;
 public class CircInOutFunction extends AbstractAnimationFunction {
     @Override
     public float get(long pastTime) {
-        float elapsedTimeRate = getElapsedTimeRate(pastTime);
-
-        if ((elapsedTimeRate *= 2f) < 1f) {
-            return (float) (-0.5f * (Math.sqrt(1f - elapsedTimeRate * elapsedTimeRate) - 1f));
+        float t = getElapsedTimeRate(pastTime);
+        if (t < 0.5f) {
+            return (float) (-0.5f * (Math.sqrt(1f - 4f * t * t) - 1f));
         }
-        return (float) (0.5f * (Math.sqrt(1f - (elapsedTimeRate -= 2f) * elapsedTimeRate) + 1f));
+        return (float) (0.5f * (Math.sqrt(1f - 4f * (t - 1f) * (t - 1f)) + 1f));
     }
 }

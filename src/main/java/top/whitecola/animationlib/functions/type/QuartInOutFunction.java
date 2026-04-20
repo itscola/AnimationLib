@@ -6,6 +6,6 @@ import top.whitecola.animationlib.utils.AnimationFunctionUtils;
 public class QuartInOutFunction extends AbstractAnimationFunction {
     @Override
     public float get(long pastTime) {
-        return AnimationFunctionUtils.getPowInOut(pastTime, 4);
+        return AnimationFunctionUtils.getPowInOut(getElapsedTimeRate(pastTime), 4);
     }
 }

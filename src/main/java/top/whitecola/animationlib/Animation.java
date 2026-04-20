@@ -4,7 +4,7 @@ import top.whitecola.animationlib.functions.AbstractAnimationFunction;
 
 import java.math.BigDecimal;
 
-public strictfp class Animation {
+public class Animation {
 
 
 //
@@ -38,14 +38,14 @@ public strictfp class Animation {
         return reverse;
     }
 
-    public strictfp Animation setMax(float max) {
+    public Animation setMax(float max) {
         if(!lock) {
             this.max = max;
         }
         return this;
     }
 
-    public strictfp Animation setMin(float min) {
+    public Animation setMin(float min) {
         if(!lock) {
             this.progressValue = min;
             this.min = min;
@@ -172,7 +172,7 @@ public strictfp class Animation {
 
 
     public Animation setLock(boolean lock){
-        lock = lock;
+        this.lock = lock;
         return this;
     }
 
